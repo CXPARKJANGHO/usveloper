@@ -1,0 +1,19 @@
+{
+  "name": "study_react",
+  "version": "1.0.0",
+  "description": "1",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CXPARKJANGHO/usveloper.git"
+  },
+  "author": "a",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CXPARKJANGHO/usveloper/issues"
+  },
+  "homepage": "https://github.com/CXPARKJANGHO/usveloper#readme"
+}
