@@ -1,21 +1,32 @@
-import React, { useState } from "react";
-import TEST from "./TEST";
+import React from "react";
+// import React, { useState } from "react";
 
-function InputText() {
-    const [text, setText] = useState("1");
+function InputText({
+    text,
+    onChange,
+    onClick,
+}: {
+    text: string | undefined;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}) {
+    // const [text, setText] = useState<string>();
+    // let textValue = "";
+    // const Abcde = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    //     setText(textValue);
+    // };
+    // const onChangeText = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     textValue = event.target.value;
+    // };
+
     return (
         <div>
-            <input className='ABD' value={text} />
-            <button className='ABD1' onClick={test}>
+            <h1>{text}</h1>
+            <input className='ABD' onChange={onChange} />
+            <button className='ABD1' onClick={onClick}>
                 1234
             </button>
         </div>
     );
 }
-
-function test(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    const a = "abc";
-    console.log(event);
-}
-
 export default InputText;

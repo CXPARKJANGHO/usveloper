@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
-import InputText from "./InputText";
-import { render } from "@testing-library/react";
+import App1 from "./App1";
 
 // 기본
 //* 정보
@@ -16,8 +15,7 @@ import { render } from "@testing-library/react";
 function App() {
     return (
         <div className='App'>
-            <h1>AAA</h1>
-            <InputText />
+            <App1 />
         </div>
     );
 }
