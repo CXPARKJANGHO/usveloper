@@ -32,6 +32,7 @@ function EventApp() {
 
     return (
         <div>
+            <title>aaaa</title>
             <InputText
                 text={text || "0"}
                 onChange={onChangeText}
