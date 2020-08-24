@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import UseEffectEX from "./UseEffectEX";
 // import React, { useState } from "react";
 
 function InputText({
-    text,
+    value: text,
     onChange,
     onClick,
 }: // eventTest2,
 {
-    text: string | undefined;
+    value: string | undefined;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     // eventTest2: (itemID: string) => any;
@@ -34,12 +33,8 @@ function InputText({
     return (
         <div>
             <h1>{text}</h1>
-            <input className='ABD' onChange={onChange} />
-            <button className='ABD1' onClick={onClick}>
-                {text}
-            </button>
-
-            <UseEffectEX />
+            <input onChange={onChange} />
+            <button onClick={onClick}>{text}</button>
         </div>
     );
 

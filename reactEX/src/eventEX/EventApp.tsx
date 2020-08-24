@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./EventApp.css";
 import InputText from "./InputText";
-import UseEffectEX from "./UseEffectEX";
 // 기본
 //* 정보
 //! 경고
@@ -24,30 +23,15 @@ function EventApp() {
         setText(textValue);
     };
 
-    let buttons;
-    useEffect(() => {
-        console.log(textValue);
-        buttons = addButtonFunction(textValue || "0");
-    });
-
     return (
         <div>
-            <title>aaaa</title>
+            <title>{textValue}</title>
             <InputText
-                text={text || "0"}
+                value={text || "0"}
                 onChange={onChangeText}
                 onClick={Abcde}
             />
-            ,{/* <UseEffectEX itemID={textValue} /> */}
-            App
-            {buttons}
         </div>
     );
 }
-
-function addButtonFunction(itemID: string) {
-    // function addButtonFunction({ itemID }: { itemID: string }) {
-    return <button itemID={itemID} />;
-}
-
 export default EventApp;
