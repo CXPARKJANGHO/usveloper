@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/CXPARKJANGHO/usveloper/issues"
   },
-  "homepage": "https://github.com/CXPARKJANGHO/usveloper#readme"
+  "homepage": "https://github.com/CXPARKJANGHO/usveloper#readme",
+  "dependencies": {
+    "@types/react-router-dom": "^5.1.5",
+    "react-router-dom": "^5.2.0"
+  }
 }

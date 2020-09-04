@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useReducer } from "react";
 import BaseButton from "../base/base_button";
 import "./EventApp.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import LoginTest from "./LoginTest";
 
 function reducer(state: any, action: any) {
     switch (action.type) {
@@ -13,6 +15,13 @@ function reducer(state: any, action: any) {
     }
 }
 
+//     state: { value, setState },
+// }: {
+//     state: {
+//         value: string;
+//         setState: React.Dispatch<React.SetStateAction<string>>;
+//     };
+// }) {
 // 기본
 //* 정보
 //! 경고
@@ -23,16 +32,17 @@ function reducer(state: any, action: any) {
  *
  * @param a
  */
-function EventApp() {
-    const [state, setUserInfo] = useReducer(reducer, {
+function EventApp({ afterOnClick }: { afterOnClick: () => void }) {
+    const [props, setUserInfo] = useReducer(reducer, {
         loginID: "",
         loginPW: "",
     });
-
-    const testEvent = (
+    const testEvent = async (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
-        setUserInfo({ type: "button" });
+        await setUserInfo({ type: "button" });
+        // setState("login");
+        await afterOnClick();
     };
 
     const onChangeTest = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,12 +54,28 @@ function EventApp() {
     };
     return (
         <div>
-            ID {state.loginID}
+            ID {props.loginID}
             <input onChange={onChangeTest} />
             <br />
-            Password {state.loginPW}
+            Password {props.loginPW}
             <input type='Password' onChange={onChangeTest2} />
-            <BaseButton name='LOGIN' onClickButton={testEvent} />
+            {/* <BaseButton name='LOGIN' onClickButton={testEvent} /> */}
+            <Router>
+                <div className='test'>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to='/main'>
+                                    <BaseButton
+                                        name='LOGIN'
+                                        onClickButton={testEvent}
+                                    />
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </Router>
         </div>
     );
 }
