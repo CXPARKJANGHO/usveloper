@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./EventApp.css";
 import InputText from "./InputText";
 // 기본
@@ -12,26 +13,27 @@ import InputText from "./InputText";
  * @param a
  */
 function EventApp() {
-    const [text, setText] = useState<string>();
-    let textValue = "";
+  const [text, setText] = useState<string>();
+  let textValue = "";
 
-    const onChangeText = (event: React.ChangeEvent<HTMLInputElement>) => {
-        textValue = event.target.value;
-    };
+  const onChangeText = (event: React.ChangeEvent<HTMLInputElement>) => {
+    textValue = event.target.value;
+  };
 
-    const Abcde = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        setText(textValue);
-    };
+  const Abcde = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    setText(textValue);
+  };
 
-    return (
-        <div>
-            <title>{textValue}</title>
-            <InputText
-                value={text || "0"}
-                onChange={onChangeText}
-                onClick={Abcde}
-            />
-        </div>
-    );
+  const history = useHistory();
+  const onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+    history.goBack();
+
+  return (
+    <div>
+      <title>{textValue}</title>
+      <InputText value={text || "0"} onChange={onChangeText} onClick={Abcde} />
+      <button onClick={onClick}>back</button>
+    </div>
+  );
 }
 export default EventApp;

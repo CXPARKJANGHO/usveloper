@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useReducer } from "react";
 import BaseButton from "../base/base_button";
 import "./EventApp.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 
 // 기본
 //* 정보
@@ -13,7 +19,16 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
  *
  * @param a
  */
-function LoginTest() {
-    return <div>LOGIN</div>;
+function LoginTest({ state }: { state: String }) {
+  const history = useHistory();
+  const onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+    history.goBack();
+  console.log(state);
+  return (
+    <div>
+      LOGIN
+      <button onClick={onClick}>back</button>
+    </div>
+  );
 }
 export default LoginTest;
