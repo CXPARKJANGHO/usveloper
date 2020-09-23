@@ -5,7 +5,7 @@ function base_button({
     onClickButton,
 }: {
     name: string;
-    onClickButton: (
+    onClickButton?: (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => void;
 }) {

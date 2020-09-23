@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
 import App1 from "./App1";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Training from "./Training/Training";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import EventApp from "./eventEX/EventApp";
 import EventApp2 from "./eventEX2/EventApp";
-import LoginTest from "./eventEX2/LoginTest";
 import { useState } from "react";
+import Main from "./Main";
+import Header_button from "./base/header_button";
 
 // 기본
 //* 정보
@@ -20,25 +21,25 @@ import { useState } from "react";
  */
 function App() {
   const [state, setState] = useState("init");
-
-  const afterOnClick = async () => {
-    await setState("login");
-  };
   return (
     <div className="App">
       <Router>
+        <Header_button />
         <Switch>
-          <Route path="/eventApp1">
-            <EventApp />
+          <Route path="/" exact >
+            <Main />
           </Route>
-          <Route path="/eventApp2">
-            <EventApp2 afterOnClick={afterOnClick} />
-          </Route>
-          <Route path="/" exact>
+          <Route path="/example" exact>
             <App1 />
           </Route>
-          <Route path="/login">
-            <LoginTest state={state} />
+          <Route path="/training" exact>
+            <Training />
+          </Route>
+          <Route path="/example/eventApp1" exact>
+            <EventApp />
+          </Route>
+          <Route path="/example/eventApp2" exact>
+            <EventApp2 />
           </Route>
         </Switch>
       </Router>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import InputText from "./InputText";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
 
 // 기본
 //* 정보
@@ -13,15 +13,19 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
  *
  * @param a
  */
-function App() {
+function App1() {
   const [text, setText] = useState<string>();
   const onChangeText = (event: React.ChangeEvent<HTMLInputElement>) => {
     textValue = event.target.value;
   };
 
-  const Abcde = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const Abcde = () => {
     setText(textValue);
   };
+  const history = useHistory();
+  const goBack = () => {
+    history.goBack();
+  }
   let textValue = "";
   return (
     <div>
@@ -31,18 +35,19 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/eventApp1">eventApp1</Link>
+            <Link to="/example/eventApp1">eventApp1</Link>
           </li>
           <li>
-            <Link to="/eventApp2">
+            <Link to="/example/eventApp2">
               <button>eventApp2</button>
             </Link>
           </li>
         </ul>
       </nav>
       <InputText text={text} onChange={onChangeText} onClick={Abcde} />
+      <button onClick={goBack}>back</button>
     </div>
   );
 }
 
-export default App;
+export default App1;

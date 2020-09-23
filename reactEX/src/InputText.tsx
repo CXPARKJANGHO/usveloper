@@ -1,5 +1,4 @@
 import React from "react";
-// import React, { useState } from "react";
 
 function InputText({
     text,
@@ -10,15 +9,6 @@ function InputText({
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }) {
-    // const [text, setText] = useState<string>();
-    // let textValue = "";
-    // const Abcde = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    //     setText(textValue);
-    // };
-    // const onChangeText = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     textValue = event.target.value;
-    // };
-
     return (
         <div>
             <h1>{text}</h1>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./EventApp.css";
 import InputText from "./InputText";
@@ -15,17 +15,17 @@ import InputText from "./InputText";
 function EventApp() {
   const [text, setText] = useState<string>();
   let textValue = "";
-
+  console.log("abc")
   const onChangeText = (event: React.ChangeEvent<HTMLInputElement>) => {
     textValue = event.target.value;
   };
 
-  const Abcde = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const Abcde = () => {
     setText(textValue);
   };
 
   const history = useHistory();
-  const onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+  const onClick = () =>
     history.goBack();
 
   return (

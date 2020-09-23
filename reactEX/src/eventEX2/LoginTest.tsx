@@ -1,11 +1,7 @@
-import React, { useState, useEffect, useReducer } from "react";
-import BaseButton from "../base/base_button";
+import React from "react";
 import "./EventApp.css";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
   useHistory,
 } from "react-router-dom";
 
@@ -19,11 +15,11 @@ import {
  *
  * @param a
  */
-function LoginTest({ state }: { state: String }) {
+function LoginTest(
+) {
   const history = useHistory();
   const onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
     history.goBack();
-  console.log(state);
   return (
     <div>
       LOGIN
